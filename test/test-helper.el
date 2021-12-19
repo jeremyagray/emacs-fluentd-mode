@@ -20,6 +20,13 @@
 ;;; Code:
 
 (require 'ert)
+(require 'undercover)
+(setq undercover-force-coverage t)
+(undercover
+ "*.el"
+ (:report-file "coverage/report.json")
+ (:report-format 'simplecov)
+ (:send-report nil))
 
 (defmacro with-fluenntd-temp-buffer (code &rest body)
   "Insert `code' and enable `fluentd-mode'. cursor is beginning of buffer"

@@ -4,4 +4,5 @@
 (package-file "fluentd-mode.el")
 
 (development
+ (depends-on "undercover")
  (depends-on "ert"))
