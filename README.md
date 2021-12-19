@@ -1,6 +1,7 @@
 # fluentd-mode.el [![travis badge][travis-badge]][travis-link]
 
-Major mode of [fluentd](http://www.fluentd.org/) configuration file.
+Major mode for [fluentd/td-agent](http://www.fluentd.org/)
+configuration files.
 
 
 ## Screenshot

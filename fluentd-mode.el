@@ -1,4 +1,4 @@
-;;; fluentd-mode.el --- Major mode for fluentd configuration file -*- lexical-binding: t; -*-
+;;; fluentd-mode.el --- Major mode for fluentd/td-agent configuration files -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2016 by Syohei YOSHIDA
 
@@ -22,14 +22,14 @@
 
 ;;; Commentary:
 
-;; Major mode for fluentd configuration file
+;; Major mode for fluentd/td-agent configuration files.
 
 ;;; Code:
 
 (require 'cl-lib)
 
 (defgroup fluentd nil
-  "Major mode for fluentd configuration file."
+  "Major mode for fluentd/td-agent configuration files."
   :group 'languages)
 
 (defcustom fluentd-indent-level 2
@@ -152,9 +152,12 @@
   (set (make-local-variable 'indent-line-function) 'fluentd-indent-line)
 
   (set (make-local-variable 'comment-start) "#"))
-
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("fluentd?.conf\\'" . fluentd-mode))
+
+;; Load for either fluentd or td-agent configuration files.
+(add-to-list
+ 'auto-mode-alist
+ '("\\(fluentd?\\.conf\\|td-agent\\.conf\\)\\'" . fluentd-mode))
 
 (provide 'fluentd-mode)
 
